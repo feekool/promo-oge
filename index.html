@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Feekool ОГЭ — Форум для подготовки к экзаменам за 1 минуту | Курсы, материалы, сообщество</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            font-size: clamp(14px, 1.8vw, 16px);
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 4vw, 24px);
+        }
+        
+        /* Header & nav */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: clamp(12px, 3vw, 20px) 0;
+            border-bottom: 1px solid #e2e8f0;
+            gap: clamp(12px, 3vw, 16px);
+            top: 0;
+            background: rgba(248, 250, 252, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 100;
+            position: sticky;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: clamp(10px, 2.5vw, 14px);
+            min-width: 0;
+        }
+        .github-cat-link {
+            display: inline-flex;
+            transition: transform 0.2s ease;
+            flex-shrink: 0;
+        }
+        .github-cat-link:hover { transform: scale(1.05); }
+        .cat-icon {
+            width: clamp(40px, 8vw, 48px);
+            height: clamp(40px, 8vw, 48px);
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: clamp(20px, 5vw, 28px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+        .brand h1 {
+            font-size: clamp(1.4rem, 4vw, 1.7rem);
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            background: linear-gradient(135deg, #1e40af, #1d4ed8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+        .brand p {
+            font-size: clamp(0.75rem, 2.5vw, 0.85rem);
+            color: #475569;
+            font-weight: 500;
+        }
+        .btn-group {
+            display: flex;
+            gap: clamp(10px, 2.5vw, 14px);
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            flex: 1;
+            min-width: 0;
+        }
+        
+        /* Buttons - mobile first */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(10px, 2.5vw, 12px) clamp(16px, 4vw, 24px);
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            text-align: center;
+            min-height: 44px;
+            min-width: 44px;
+            white-space: nowrap;
+            cursor: pointer;
+            border: none;
+            gap: 6px;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+        .btn-primary:hover, .btn-primary:active {
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #cbd5e1;
+            color: #1e293b;
+        }
+        .btn-outline:hover, .btn-outline:active {
+            background: #eff6ff;
+            border-color: #2563eb;
+            color: #1d4ed8;
+            transform: translateY(-1px);
+        }
+        .btn-large {
+            padding: clamp(12px, 3vw, 14px) clamp(24px, 6vw, 36px);
+            font-size: clamp(0.95rem, 3vw, 1.05rem);
+        }
+        .btn-full-mobile {
+            width: 100%;
+            max-width: 320px;
+        }
+        
+        /* Hero */
+        .hero {
+            padding: clamp(40px, 8vw, 60px) 0 clamp(30px, 6vw, 40px);
+            text-align: center;
+            background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
+            border-radius: 0 0 clamp(24px, 5vw, 40px) clamp(24px, 5vw, 40px);
+            margin-bottom: clamp(24px, 5vw, 40px);
+        }
+        .hero h2 {
+            font-size: clamp(1.8rem, 6vw, 2.6rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(145deg, #1e40af, #1d4ed8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: clamp(16px, 4vw, 20px);
+            line-height: 1.2;
+        }
+        .hero .highlight {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: clamp(4px, 1.5vw, 6px) clamp(12px, 3vw, 16px);
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            font-weight: 600;
+            margin-bottom: clamp(16px, 4vw, 24px);
+            flex-wrap: wrap;
+            justify-content: center;
+            border: 1px solid #bfdbfe;
+        }
+        .hero p {
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
+            color: #334155;
+            max-width: 800px;
+            margin: 0 auto clamp(20px, 5vw, 24px);
+            line-height: 1.5;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(10px, 2.5vw, 14px);
+            justify-content: center;
+            margin-top: clamp(16px, 4vw, 24px);
+        }
+        .badge-speed {
+            background: #dbeafe;
+            color: #1e40af;
+            border-radius: 30px;
+            padding: clamp(6px, 2vw, 8px) clamp(14px, 3.5vw, 18px);
+            font-weight: 600;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin: clamp(16px, 4vw, 24px) auto 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 100%;
+            border: 1px solid #bfdbfe;
+        }
+        
+        /* Sections */
+        .section {
+            padding: clamp(40px, 8vw, 60px) 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .section-title {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 700;
+            margin-bottom: clamp(24px, 6vw, 40px);
+            text-align: center;
+            letter-spacing: -0.3px;
+            line-height: 1.3;
+            color: #1e293b;
+        }
+        
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: clamp(20px, 4vw, 32px);
+        }
+        .card {
+            background: white;
+            border-radius: clamp(20px, 4vw, 28px);
+            padding: clamp(20px, 4vw, 28px) clamp(16px, 3vw, 20px);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(8px, 2vw, 12px);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #93c5fd;
+            box-shadow: 0 20px 30px -12px rgba(37, 99, 235, 0.15);
+        }
+        .card-icon {
+            font-size: clamp(2rem, 6vw, 2.5rem);
+            line-height: 1;
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            width: clamp(56px, 12vw, 64px);
+            height: clamp(56px, 12vw, 64px);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+        .card h3 {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: 700;
+            line-height: 1.3;
+            color: #1e293b;
+        }
+        .card p {
+            color: #475569;
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            line-height: 1.5;
+        }
+        .card .btn {
+            margin-top: auto;
+            align-self: flex-start;
+        }
+        
+        /* Steps */
+        .steps {
+            background: linear-gradient(135deg, #f0f9ff, #eff6ff);
+            border-radius: clamp(32px, 6vw, 48px);
+            padding: clamp(24px, 5vw, 40px) clamp(20px, 4vw, 36px);
+            margin-top: clamp(16px, 4vw, 20px);
+            border: 1px solid #bfdbfe;
+        }
+        .step-list {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(20px, 4vw, 28px);
+            counter-reset: step-counter;
+        }
+        .step-item {
+            display: flex;
+            gap: clamp(14px, 3vw, 20px);
+            align-items: flex-start;
+            counter-increment: step-counter;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            width: clamp(40px, 8vw, 44px);
+            height: clamp(40px, 8vw, 44px);
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: clamp(1.1rem, 3.5vw, 1.3rem);
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+        .step-text {
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            line-height: 1.5;
+            color: #334155;
+        }
+        .step-text strong {
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            display: block;
+            margin-bottom: clamp(4px, 1vw, 6px);
+            font-weight: 700;
+            color: #1e293b;
+        }
+        .step-text a {
+            color: #1d4ed8;
+            text-decoration: none;
+            word-break: break-all;
+            font-weight: 500;
+        }
+        .step-text a:hover { text-decoration: underline; }
+        
+        .alt-install {
+            background: #dbeafe;
+            border-radius: clamp(16px, 4vw, 24px);
+            padding: clamp(14px, 3vw, 20px);
+            text-align: center;
+            margin-top: clamp(24px, 5vw, 32px);
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+        }
+        .steps-cta {
+            text-align: center;
+            margin-top: clamp(24px, 5vw, 28px);
+        }
+        
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+            gap: clamp(14px, 3vw, 20px);
+            justify-content: center;
+            margin-top: clamp(20px, 4vw, 30px);
+        }
+        .gallery-item {
+            background: white;
+            border-radius: clamp(20px, 4vw, 28px);
+            padding: clamp(10px, 2.5vw, 12px);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .gallery-img {
+            width: 100%;
+            aspect-ratio: 220/160;
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            border-radius: clamp(14px, 3vw, 20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            background-size: cover;
+            background-position: center;
+            color: #1e40af;
+            font-weight: 700;
+            flex-shrink: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .gallery-img::after {
+            content: "ОГЭ";
+            position: absolute;
+            font-size: clamp(2rem, 8vw, 4rem);
+            opacity: 0.15;
+            font-weight: 800;
+            color: #1e40af;
+        }
+        .gallery-url {
+            margin-top: clamp(8px, 2vw, 12px);
+            display: flex;
+            flex-direction: column;
+            gap: clamp(6px, 1.5vw, 8px);
+        }
+        .gallery-url input {
+            width: 100%;
+            padding: clamp(8px, 2vw, 10px) clamp(12px, 3vw, 14px);
+            border-radius: 40px;
+            border: 1px solid #cbd5e1;
+            font-size: clamp(0.75rem, 2.5vw, 0.85rem);
+            min-height: 40px;
+        }
+        .gallery-url input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .gallery-url button {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            border: none;
+            color: white;
+            padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 20px);
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            font-weight: 600;
+            min-height: 40px;
+            transition: all 0.2s;
+        }
+        .gallery-url button:hover { 
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+            transform: translateY(-1px);
+        }
+        
+        /* CTA Block */
+        .cta-block {
+            text-align: center;
+            background: linear-gradient(135deg, #1e40af, #1d4ed8);
+            border-radius: clamp(32px, 6vw, 48px);
+            padding: clamp(32px, 7vw, 48px) clamp(20px, 4vw, 24px);
+            margin-bottom: clamp(16px, 4vw, 20px);
+            color: white;
+        }
+        .offer-badge {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border-radius: 60px;
+            padding: clamp(8px, 2vw, 10px) clamp(16px, 4vw, 24px);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: clamp(16px, 4vw, 20px);
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            flex-wrap: wrap;
+            justify-content: center;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .cta-block h3 {
+            font-size: clamp(1.4rem, 4.5vw, 1.9rem);
+            margin-bottom: clamp(12px, 3vw, 16px);
+            line-height: 1.3;
+        }
+        .cta-block p {
+            max-width: 700px;
+            margin: 0 auto clamp(20px, 5vw, 28px);
+            font-size: clamp(0.95rem, 3vw, 1.05rem);
+            line-height: 1.5;
+            opacity: 0.95;
+        }
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(10px, 2.5vw, 14px);
+            justify-content: center;
+            margin: clamp(16px, 4vw, 20px) 0;
+        }
+        .cta-buttons .btn-outline {
+            border-color: rgba(255,255,255,0.6);
+            color: white;
+        }
+        .cta-buttons .btn-outline:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: white;
+        }
+        .cta-note {
+            background: rgba(255,255,255,0.15);
+            border-radius: 60px;
+            padding: clamp(12px, 3vw, 16px) clamp(20px, 4vw, 24px);
+            max-width: 560px;
+            margin: clamp(24px, 5vw, 32px) auto 0;
+            font-size: clamp(0.9rem, 2.8vw, 1rem);
+            line-height: 1.4;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        /* Footer */
+        footer {
+            padding: clamp(32px, 7vw, 40px) 0;
+            text-align: center;
+            color: #64748b;
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            line-height: 1.6;
+            border-top: 1px solid #e2e8f0;
+        }
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        footer a:hover { text-decoration: underline; }
+        
+        /* Floating mobile CTA */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: clamp(12px, 3vw, 20px);
+            left: clamp(12px, 3vw, 20px);
+            right: clamp(12px, 3vw, 20px);
+            z-index: 999;
+            padding: clamp(8px, 2vw, 12px);
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            animation: slideUp 0.3s ease;
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .mobile-cta .btn {
+            width: 100%;
+            padding: clamp(12px, 3vw, 14px);
+            font-size: clamp(0.95rem, 3vw, 1rem);
+        }
+        
+        /* Quick access bar */
+        .quick-access {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(8px, 2vw, 12px);
+            justify-content: center;
+            margin: clamp(20px, 5vw, 40px) 0;
+            padding: clamp(12px, 3vw, 16px);
+            background: #f1f5f9;
+            border-radius: clamp(16px, 4vw, 24px);
+            border: 1px solid #e2e8f0;
+        }
+        .quick-access .btn {
+            padding: clamp(8px, 2vw, 10px) clamp(14px, 3vw, 18px);
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+        }
+        
+        /* OGE-specific badges */
+        .subject-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 4px 2px;
+        }
+        
+        /* Stats bar */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: clamp(16px, 4vw, 32px);
+            flex-wrap: wrap;
+            margin: clamp(24px, 5vw, 40px) 0;
+            padding: clamp(16px, 4vw, 24px);
+            background: white;
+            border-radius: clamp(20px, 4vw, 28px);
+            border: 1px solid #e2e8f0;
+        }
+        .stat-item {
+            text-align: center;
+            min-width: 120px;
+        }
+        .stat-value {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            color: #1e40af;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            color: #64748b;
+            margin-top: 4px;
+        }
+        
+        /* Responsive breakpoints */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+            .logo-area {
+                justify-content: center;
+            }
+            .btn-group {
+                justify-content: center;
+                flex: none;
+            }
+            .hero-buttons .btn {
+                flex: 1;
+                min-width: 140px;
+            }
+            .step-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .step-number {
+                margin-bottom: 8px;
+            }
+            .cta-buttons .btn {
+                flex: 1;
+                min-width: 160px;
+                max-width: 280px;
+            }
+            .stats-bar {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .btn-group {
+                width: 100%;
+            }
+            .btn-group .btn {
+                flex: 1;
+                min-width: 0;
+                font-size: 0.9rem;
+                padding: 10px 16px;
+            }
+            .hero h2 {
+                font-size: 1.7rem;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+            .card {
+                padding: 20px 16px;
+            }
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            .quick-access {
+                flex-direction: column;
+            }
+            .quick-access .btn {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            .brand h1 {
+                font-size: 1.3rem;
+            }
+            .btn-large {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Show mobile CTA on small screens */
+        @media (max-width: 768px) {
+            .mobile-cta {
+                display: block;
+            }
+            .desktop-only {
+                display: none;
+            }
+        }
+        @media (min-width: 769px) {
+            .mobile-only {
+                display: none;
+            }
+        }
+        
+        /* Accessibility */
+        .btn:focus, 
+        input:focus,
+        a:focus {
+            outline: 2px solid #2563eb;
+            outline-offset: 2px;
+        }
+        
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header / навигация -->
+    <nav class="navbar" aria-label="Основная навигация">
+        <div class="logo-area">
+            <div class="cat-icon" aria-hidden="true">🎓</div>
+            <div class="brand">
+                <h1>Feekool ОГЭ</h1>
+                <p>форум для подготовки к экзаменам</p>
+            </div>
+        </div>
+        <div class="btn-group">
+            <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline" aria-label="Открыть демо для ОГЭ">👁️ Демо ОГЭ</a>
+            <a href="#contact" class="btn btn-primary">✉️ Для учителей</a>
+        </div>
+    </nav>
+
+    <!-- Hero блок -->
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="highlight">🎯 Специально для подготовки к ОГЭ</div>
+        <h2 id="hero-title">Создайте форум для курса ОГЭ<br>за 1 минуту на GitHub</h2>
+        <p>Бесплатная платформа для репетиторов, школ и учеников: материалы, задания, обсуждения и поддержка — без серверов и сложной настройки.</p>
+        
+        <div class="hero-buttons">
+            <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-primary btn-large btn-full-mobile" aria-label="Посмотреть демо-версию форума для ОГЭ">
+                👁️ Демо для ОГЭ
+            </a>
+            <a href="https://github.com/feekool/feekool.github.io" target="_blank" class="btn btn-outline btn-large btn-full-mobile" aria-label="Перейти к шаблону на GitHub">
+                📦 Установить шаблон
+            </a>
+        </div>
+        
+        <div class="badge-speed">
+            ⏱️ 1 минута • 🆓 Бесплатно • 📚 Для любого предмета
+        </div>
+    </section>
+
+    <!-- Статистика -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <div class="stat-value">9+</div>
+            <div class="stat-label">предметов ОГЭ</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">∞</div>
+            <div class="stat-label">учеников</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">0₽</div>
+            <div class="stat-label">стоимость</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value">24/7</div>
+            <div class="stat-label">доступ</div>
+        </div>
+    </div>
+
+    <!-- Быстрый доступ -->
+    <div class="quick-access" role="navigation" aria-label="Быстрые ссылки">
+        <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline">🔗 Демо математика</a>
+        <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline">📱 Мобильная версия</a>
+        <a href="https://github.com/feekool/feekool.github.io" target="_blank" class="btn btn-outline">🐙 GitHub шаблон</a>
+        <a href="#install" class="btn btn-outline">📚 Инструкция</a>
+    </div>
+
+    <!-- Преимущества -->
+    <section class="section" aria-labelledby="features-title">
+        <h2 id="features-title" class="section-title">✨ Почему Feekool идеален для ОГЭ?</h2>
+        <div class="cards-grid">
+            <article class="card">
+                <div class="card-icon" aria-hidden="true">🚀</div>
+                <h3>Запуск за 60 секунд</h3>
+                <p>Никаких серверов и хостинга. Создайте форум для своего курса ОГЭ — ученики получат доступ мгновенно через ссылку.</p>
+                <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline">👉 Демо математика</a>
+            </article>
+            <article class="card">
+                <div class="card-icon" aria-hidden="true">📚</div>
+                <h3>Структура под ОГЭ</h3>
+                <p>Разделы по темам экзамена: алгебра, геометрия, русский язык, обществознание. Загружайте задания, ответы, разборы.</p>
+                <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline">👁️ Пример структуры</a>
+            </article>
+            <article class="card">
+                <div class="card-icon" aria-hidden="true">👥</div>
+                <h3>Сообщество учеников</h3>
+                <p>Обсуждение сложных задач, взаимопомощь, вопросы репетитору — всё в одном месте, без смешивания с личными чатами.</p>
+                <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline">🔐 Демо сообщества</a>
+            </article>
+            <article class="card">
+                <div class="card-icon" aria-hidden="true">🔄</div>
+                <h3>Обновления контента</h3>
+                <p>Добавляйте новые варианты ОГЭ, видео-разборы, чек-листы. Ученики всегда видят актуальные материалы.</p>
+                <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline">🔄 Демо обновлений</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Установка -->
+    <section class="section" id="install" aria-labelledby="install-title">
+        <h2 id="install-title" class="section-title">📦 Установка форума для ОГЭ за 1 минуту</h2>
+        <div class="steps">
+            <ol class="step-list">
+                <li class="step-item">
+                    <div class="step-number" aria-hidden="true">1</div>
+                    <div class="step-text">
+                        <strong>Создайте аккаунт на GitHub</strong>
+                        Бесплатная регистрация на <a href="https://github.com" target="_blank">github.com</a> (можно через школу)
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number" aria-hidden="true">2</div>
+                    <div class="step-text">
+                        <strong>Откройте шаблон ОГЭ</strong><br>
+                        <a href="https://github.com/feekool/feekool.github.io" target="_blank">github.com/feekool/feekool.github.io</a>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number" aria-hidden="true">3</div>
+                    <div class="step-text">
+                        <strong>Нажмите "Use this template"</strong> → "Create a new repository". Назовите: "oge-math-2026" или "oge-russian-course"
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number" aria-hidden="true">4</div>
+                    <div class="step-text">
+                        <strong>Включите GitHub Pages</strong>: Settings → Pages → ветка main → Save. Через 60 секунд форум онлайн!
+                    </div>
+                </li>
+                <li class="step-item">
+                    <div class="step-number" aria-hidden="true">5</div>
+                    <div class="step-text">
+                        <strong>Настройте под свой предмет</strong> 🎯 Замените темы, загрузите задания ОГЭ, добавьте расписание консультаций.
+                    </div>
+                </li>
+            </ol>
+            
+            <div class="alt-install">
+                💡 <strong>Для школ и центров:</strong> Создайте отдельные форумы для каждого предмета или группы учеников. Все форумы управляются из одного аккаунта.
+            </div>
+            
+            <div class="steps-cta">
+                <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-primary btn-large btn-full-mobile" style="margin-bottom: 12px;">
+                    👁️ Посмотрите демо для ОГЭ!
+                </a><br>
+                <a href="https://github.com/feekool/feekool.github.io" target="_blank" class="btn btn-outline btn-large btn-full-mobile">
+                    ⚡ Создать свой форум ОГЭ
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Сценарии использования для ОГЭ -->
+    <section class="section" aria-labelledby="usecases-title">
+        <h2 id="usecases-title" class="section-title">🧩 Feekool для разных форматов подготовки к ОГЭ</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">🎓</div>
+                <h3>Курс репетитора</h3>
+                <p>Личный форум для ваших учеников: домашние задания, разборы, обратная связь. <span class="subject-badge">Математика</span> <span class="subject-badge">Русский</span></p>
+                <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline">👁️ Демо репетитора</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏫</div>
+                <h3>Школьный клуб ОГЭ</h3>
+                <p>Общая платформа для параллели: расписание, материалы учителей, вопросы между уроками.</p>
+                <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline">👁️ Демо школы</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">📦</div>
+                <h3>Витрина материалов</h3>
+                <p>Каталог заданий ОГЭ по темам, видео-разборы, чек-листы, шаблоны ответов. Доступ 24/7.</p>
+                <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline">👁️ Демо витрины</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">❓</div>
+                <h3>База вопросов</h3>
+                <p>Ученики задают вопросы по сложным темам, вы или другие ученики отвечают — формируется живая база знаний.</p>
+                <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline">👁️ Демо Q&A</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Трекинг прогресса</h3>
+                <p>Разделы "Сдал тему", "Нужно повторить", "Готов к экзамену" — мотивация и наглядный прогресс.</p>
+                <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline">👁️ Демо прогресса</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">🗓️</div>
+                <h3>Расписание и анонсы</h3>
+                <p>Публикуйте даты пробников, вебинаров, дедлайны. Ученики получают уведомления.</p>
+                <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline">👁️ Демо расписания</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <h3>Групповые занятия</h3>
+                <p>Отдельные ветки для мини-групп: обсуждение ДЗ, материалы, обратная связь без смешения потоков.</p>
+                <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline">👁️ Демо групп</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎁</div>
+                <h3>Бонусы и мотивация</h3>
+                <p>Раздел "Достижения": за активность, правильные ответы, помощь другим — геймификация подготовки.</p>
+                <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline">👁️ Демо мотивации</a>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: clamp(24px, 5vw, 36px); background: #dbeafe; padding: clamp(12px, 3vw, 16px); border-radius: 60px; font-size: clamp(0.9rem, 2.8vw, 1rem); color: #1e40af;">
+            🛠️ Нужна кастомизация под ваш предмет? <a href="https://github.com/feekool/feekool.github.io/issues" target="_blank">Напишите нам</a> — поможем настроить
+        </p>
+    </section>
+
+    <!-- Галерея примеров -->
+    <section class="section" aria-labelledby="gallery-title">
+        <h2 id="gallery-title" class="section-title">🖼️ Примеры форумов для ОГЭ</h2>
+        <div class="gallery" id="galleryContainer">
+            <div class="gallery-item" data-id="0">
+                <div class="gallery-img" style="background-image: url('https://picsum.photos/id/1/250/160');"></div>
+                <div class="gallery-url">
+                    <input type="text" placeholder="URL скриншота раздела" value="https://picsum.photos/id/1/250/160">
+                    <button class="update-img">Обновить</button>
+                </div>
+            </div>
+            <div class="gallery-item" data-id="1">
+                <div class="gallery-img" style="background-image: url('https://picsum.photos/id/20/250/160');"></div>
+                <div class="gallery-url">
+                    <input type="text" placeholder="URL скриншота раздела" value="https://picsum.photos/id/20/250/160">
+                    <button class="update-img">Обновить</button>
+                </div>
+            </div>
+            <div class="gallery-item" data-id="2">
+                <div class="gallery-img" style="background-image: url('https://picsum.photos/id/87/250/160');"></div>
+                <div class="gallery-url">
+                    <input type="text" placeholder="URL скриншота раздела" value="https://picsum.photos/id/87/250/160">
+                    <button class="update-img">Обновить</button>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 24px;">
+            <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-primary">🎨 Больше примеров в демо</a>
+        </div>
+    </section>
+
+    <!-- CTA блок -->
+    <section class="cta-block" id="contact" aria-labelledby="cta-title">
+        <div class="offer-badge">🎯 СПЕЦИАЛЬНО ДЛЯ ПОДГОТОВКИ К ОГЭ</div>
+        <h3 id="cta-title" style="font-size: clamp(1.4rem, 4.5vw, 1.9rem); margin-bottom: 12px;">Замените чаты и почту на структурированный форум</h3>
+        <p style="max-width: 700px; margin: 0 auto 24px; font-size: clamp(0.95rem, 3vw, 1.05rem);">
+            Telegram, WhatsApp, VK — неудобно для обучения. Feekool даёт порядок: темы, задания, архив, поиск — всё для эффективной подготовки.
+        </p>
+        
+        <div class="cta-buttons">
+            <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-primary btn-large" aria-label="Открыть демо-презентацию форума для ОГЭ">
+                📢 Демо для репетиторов
+            </a>
+            <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-outline btn-large" aria-label="Открыть демо-версию форума">
+                🚀 Попробовать бесплатно
+            </a>
+            <a href="https://github.com/feekool/feekool.github.io/issues" target="_blank" class="btn btn-outline btn-large" aria-label="Связаться для консультации">
+                💬 Помощь в настройке
+            </a>
+        </div>
+        
+        <div class="cta-note">
+            ⚡ <strong>Бесплатная консультация для педагогов!</strong> Напишите — поможем настроить форум под ваш предмет и формат занятий.
+        </div>
+    </section>
+
+    <!-- Финальные кнопки -->
+    <div style="display: flex; justify-content: center; gap: clamp(12px, 3vw, 24px); flex-wrap: wrap; margin: clamp(16px, 4vw, 40px) 0;" role="navigation" aria-label="Основные действия">
+        <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-primary btn-large" aria-label="Перейти к демо-презентации форума для ОГЭ">
+            🎯 Демо для ОГЭ
+        </a>
+        <a href="https://github.com/feekool/feekool.github.io" target="_blank" class="btn btn-outline btn-large" aria-label="Перейти к установке шаблона">
+            📦 Установить шаблон
+        </a>
+        <a href="https://github.com/feekool/feekool.github.io/issues" target="_blank" class="btn btn-outline btn-large" aria-label="Задать вопрос по настройке">
+            ❓ Вопросы по настройке
+        </a>
+    </div>
+
+    <footer>
+        <p>© Feekool ОГЭ — форум для подготовки к основному государственному экзамену. Базовая open-source версия бесплатна.<br>
+        Индивидуальная настройка под предмет, школу или репетиторский центр — <a href="https://github.com/feekool/feekool.github.io/issues" target="_blank">напишите нам</a>.</p>
+        <p style="margin-top: 12px;">🚀 Без серверов, без оплаты, без сложностей — только фокус на подготовке к экзамену.</p>
+        <p style="margin-top: 8px;">
+            <a href="https://feekool.github.io/oge-demo" target="_blank" style="color: #2563eb; font-weight: 600;">👁️ Открыть демо-форум для ОГЭ</a>
+        </p>
+        <p style="margin-top: 16px; font-size: 0.85rem; color: #94a3b8;">
+            Предметы: математика • русский язык • физика • химия • биология • история • обществознание • информатика • география
+        </p>
+    </footer>
+</div>
+
+<!-- Плавающая кнопка для мобильных -->
+<div class="mobile-cta" role="navigation" aria-label="Быстрый доступ к демо ОГЭ">
+    <a href="https://feekool.github.io/oge-demo" target="_blank" class="btn btn-primary" aria-label="Открыть демо-версию форума для ОГЭ">
+        🎯 Демо форума для ОГЭ
+    </a>
+</div>
+
+<!-- Скрипт для галереи -->
+<script>
+    (function() {
+        const galleryContainer = document.getElementById('galleryContainer');
+        if (!galleryContainer) return;
+
+        function updateGalleryImage(item, imgDiv, inputField) {
+            let newUrl = inputField.value.trim();
+            if (!newUrl) {
+                newUrl = "https://via.placeholder.com/250x160?text=ОГЭ+материалы";
+            }
+            // Проверка на валидный URL
+            try {
+                new URL(newUrl);
+                imgDiv.style.backgroundImage = `url('${newUrl.replace(/'/g, "\\'")}')`;
+            } catch(e) {
+                alert('Пожалуйста, введите корректный URL изображения');
+                return;
+            }
+            imgDiv.style.backgroundSize = 'cover';
+            imgDiv.style.backgroundPosition = 'center';
+        }
+
+        const items = galleryContainer.querySelectorAll('.gallery-item');
+        items.forEach(item => {
+            const imgDiv = item.querySelector('.gallery-img');
+            const inputField = item.querySelector('input');
+            const btn = item.querySelector('.update-img');
+            
+            if (btn && imgDiv && inputField) {
+                // Инициализация
+                if (inputField.value) {
+                    imgDiv.style.backgroundImage = `url('${inputField.value}')`;
+                    imgDiv.style.backgroundSize = 'cover';
+                }
+                
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    updateGalleryImage(item, imgDiv, inputField);
+                });
+                
+                inputField.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        updateGalleryImage(item, imgDiv, inputField);
+                    }
+                });
+            }
+        });
+        
+        // Плавное появление мобильного CTA при скролле
+        const mobileCta = document.querySelector('.mobile-cta');
+        if (mobileCta) {
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                if (currentScroll > 300 && currentScroll > lastScroll) {
+                    mobileCta.style.transform = 'translateY(0)';
+                    mobileCta.style.opacity = '1';
+                } else if (currentScroll < 100) {
+                    mobileCta.style.transform = 'translateY(100px)';
+                    mobileCta.style.opacity = '0';
+                }
+                lastScroll = currentScroll;
+            }, { passive: true });
+        }
+    })();
+</script>
+
+<!-- Structured data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Feekool ОГЭ",
+  "description": "Создайте бесплатный форум для подготовки к ОГЭ на GitHub Pages за 1 минуту. Для репетиторов, школ и учеников.",
+  "applicationCategory": "EducationalApplication",
+  "educationalUse": "Exam preparation",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "RUB"
+  },
+  "url": "https://feekool.github.io/oge-demo",
+  "audience": {
+    "@type": "EducationalAudience",
+    "educationalRole": "Student, Teacher, Tutor"
+  }
+}
+</script>
+</body>
+</html>
